@@ -5,11 +5,11 @@ import time
 import winsound
 from threading import *
 
-# Create Object
+
 root = Tk()
 
-# Set geometry
-root.geometry("400x200")
+# 設定邊界
+root.geometry("300x200")
 
 # Use Threading
 def Threading():
@@ -17,25 +17,24 @@ def Threading():
 	t1.start()
 
 def alarm():
-	# Infinite Loop
+	
 	while True:
-		# Set Alarm
 		set_alarm_time = f"{hour.get()}:{minute.get()}:{second.get()}"
 
-		# Wait for one seconds
+		# 等一秒鐘
 		time.sleep(1)
 
 		# Get current time
 		# current_time = datetime.datetime.now().strftime("%H:%M:%S")
 		# print(current_time,set_alarm_time)
 
-		# Check whether set alarm is equal to current time or not
+		# 確認是否有設定到520 
 		if set_alarm_time == "5:2:0":
 			print("嘟嘟我愛你")
 			# Playing sound
 			winsound.PlaySound("sound.wav",winsound.SND_ASYNC)
 
-# Add Labels, Frame, Button, Optionmenus
+#加 Labels, Frame, Button, Optionmenus
 Label(root,text="嘟嘟昂",font=("Helvetica 20 bold"),fg="red").pack(pady=10)
 Label(root,text="請輸入通關密語",font=("Helvetica 15 bold")).pack()
 
@@ -65,5 +64,5 @@ secs.pack(side=LEFT)
 
 Button(root,text="說愛我",font=("Helvetica 15"),command=Threading).pack(pady=20)
 
-# Execute Tkinter
+# 執行
 root.mainloop()
