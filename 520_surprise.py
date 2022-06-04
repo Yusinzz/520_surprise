@@ -6,11 +6,12 @@ import winsound
 from threading import *
 
 
-root = Tk()
+surprise = Tk()
 
 # 設定邊界
-root.geometry("300x200")
-
+surprise.geometry("300x200")
+# 設定title
+surprise.title('520解謎遊戲')
 # Use Threading
 def Threading():
 	t1=Thread(target=alarm)
@@ -35,34 +36,34 @@ def alarm():
 			winsound.PlaySound("sound.wav",winsound.SND_ASYNC)
 
 #加 Labels, Frame, Button, Optionmenus
-Label(root,text="嘟嘟昂",font=("Helvetica 20 bold"),fg="red").pack(pady=10)
-Label(root,text="請輸入通關密語",font=("Helvetica 15 bold")).pack()
-
-frame = Frame(root)
+Label(surprise,text="嘟嘟昂",font=("Helvetica 20 bold"),fg="red").pack(pady=10)
+Label(surprise,text="請輸入通關密語",font=("Helvetica 15 bold")).pack()
+#123
+frame = Frame(surprise)
 frame.pack()
 
-hour = StringVar(root)
+hour = StringVar(surprise)
 hours = ('0','1','2','3','4','5','6','7','8','9')
 hour.set(hours[0])
 
 hrs = OptionMenu(frame, hour, *hours)
 hrs.pack(side=LEFT)
 
-minute = StringVar(root)
+minute = StringVar(surprise)
 minutes = ('0','1','2','3','4','5','6','7','8','9')
 minute.set(minutes[0])
 
 mins = OptionMenu(frame, minute, *minutes)
 mins.pack(side=LEFT)
 
-second = StringVar(root)
+second = StringVar(surprise)
 seconds = ('0','1','2','3','4','5','6','7','8','9')
 second.set(seconds[0])
 
 secs = OptionMenu(frame, second, *seconds)
 secs.pack(side=LEFT)
 
-Button(root,text="說愛我",font=("Helvetica 15"),command=Threading).pack(pady=20)
+Button(surprise,text="說愛我",font=("Helvetica 15"),command=Threading).pack(pady=20)
 
 # 執行
-root.mainloop()
+surprise.mainloop()
